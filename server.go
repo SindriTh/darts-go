@@ -72,7 +72,7 @@ func main() {
 			c.HTML(200, "awaiting.html", gin.H{})
 		} else {
 			//c.HTML(200, "/games/" + game.GetGame().Name + "/index.html", gin.H{})
-			c.Redirect(http.StatusMovedPermanently, "/games/"+game.GetGame().Name+".html")
+			c.Redirect(http.StatusMovedPermanently, "/games/"+game.GetGame().Name+"/index.html")
 		}
 	})
 	g.Static("/start", "")
