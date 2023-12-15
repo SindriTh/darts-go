@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Page Title</title>
+    <title>PEELA - A Dart Scoring System</title>
     <link rel="stylesheet" href="/assets/bootstrap.min.css">
     <style>
         ul,
@@ -72,22 +72,21 @@
 
     </style>
 </head>
+<script src="/assets/qrcode.min.js"></script>
 
 <body>
     <div class="container" id="scoreboard">
         <div class="row title">
-            <h1 style="text-align: center;">Darts Automata Teszt rendszer</h1>
-            <h2 style="text-align: center;">Indítsd el a játékot a mobil telefonodról</h2>
-            <h3>Kérlek segítsd a rendszer fejlesztését azzal, hogy használod a mobil felületet és kijavítod a hibásan felismert dobásokat. A
-            javításokat elmentjük és elemezzük, így fejlesztjük tovább a rendszert, hogy végül hiba nélkül használhasd!</h3>
-            <h3>A játék indító és hibajavító felület a <b>http://192.168.1.2/jatek</b> címen érhető el a helyi wifire kapcsolódva (jelszó: "snooker forever"). Vagy olvasd le a vonalkódot.</h3>
+            <h1 style="text-align: center;">Darts Automata Test System</h1>
+            <h2 style="text-align: center;">Start the game from your mobile phone</h2>
+            <h3>Please help the system development by using the mobile interface and correcting any inaccurately recognized throws. The corrections are saved and analyzed, thus we further develop the system so that you can use it without errors eventually!</h3>
             <div id="qrcode" style="padding: 50px;background: white;margin-top:100px"></div>
         </div>
     </div>
+    
 
-    <script src="/assets/qrcode.min.js"></script>
     <script>
-      var qrcode = new QRCode("qrcode", {
+      var qrcode = new QRCode(document.getElementById("qrcode"), {
           text: "http://"+window.location.hostname+'/admin/setPlayer',
           width: 256,
           height: 256,
@@ -95,6 +94,10 @@
           colorLight : "#FFFFFF",
           correctLevel : QRCode.CorrectLevel.H
       });
+      // set qr code into div with id #qrcode
+
+    qrcode.makeCode()
+
       window.onload = function(){
 
           var socket = new WebSocket('ws://'+window.location.hostname+':'+window.location.port+'/ws');
