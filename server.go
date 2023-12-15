@@ -8,12 +8,14 @@ import (
 
 	"strconv"
 
+	"net/http"
+
 	"github.com/google/uuid"
 	"github.com/olahol/melody"
 	"gopkg.in/gin-gonic/gin.v1"
-	"net/http"
 
 	"database/sql"
+
 	_ "github.com/mattn/go-sqlite3"
 )
 
@@ -53,9 +55,9 @@ func main() {
 	})
 
 	r.LoadHTMLFiles("scoreboards/awaiting.html",
-			"admin/start-game.html",
-			"admin/editthrow.html",
-			"admin/index.html")
+		"admin/start-game.html",
+		"admin/editthrow.html",
+		"admin/index.html")
 
 	r.GET("/", func(c *gin.Context) {
 		c.HTML(200, "index.html", gin.H{})
@@ -70,7 +72,7 @@ func main() {
 			c.HTML(200, "awaiting.html", gin.H{})
 		} else {
 			//c.HTML(200, "/games/" + game.GetGame().Name + "/index.html", gin.H{})
-			c.Redirect(http.StatusMovedPermanently, "/games/" + game.GetGame().Name + "/index.html")
+			c.Redirect(http.StatusMovedPermanently, "/games/"+game.GetGame().Name+".html")
 		}
 	})
 	g.Static("/start", "")
@@ -141,8 +143,12 @@ func main() {
 
 func InitDB(filepath string) *sql.DB {
 	db, err := sql.Open("sqlite3", filepath)
-	if err != nil { panic(err) }
-	if db == nil { panic("db nil") }
+	if err != nil {
+		panic(err)
+	}
+	if db == nil {
+		panic("db nil")
+	}
 	return db
 }
 
