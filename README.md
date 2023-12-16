@@ -53,23 +53,27 @@ server. The game UI is at the address [http://darts3:8080/game/scoreboard](http:
 
 If there is no game started, then the game UI shows a barcode, that points to the admin UI:
 
-![game ui started](https://github.com/IPeter/darts-go/blob/master/doc/gameUI01.png)
+![QR-Code at waiting screen](https://github.com/SindriTh/darts-go/assets/70705172/366d9dde-81d1-4660-a4d2-9f20ab5bfded)
+
 
 The barcode shows the url of the admin UI:
 
 
 
 The first step is to enter the name of the players ([http://darts3:8080/admin/setPlayer](http://darts3:8080/admin/setPlayer)):
-![game ui started](https://github.com/IPeter/darts-go/blob/master/doc/adminUI01.png)
+![image](https://github.com/SindriTh/darts-go/assets/70705172/6fb544d2-a846-4809-bfa6-0ef8abf91f0b)
+
 
 The start button starts the game. The admin ui will show every throw. The user can fix the
 recognized score in case of a wrong recognition. The game UI will show the current status
 of the game.
 
 
-![game ui started](https://github.com/IPeter/darts-go/blob/master/doc/screenshot01.png)
+![UI Game Started](https://github.com/SindriTh/darts-go/assets/70705172/d0c462a7-1d0c-4100-b2bb-ba89cdbeeeed)
 
-![game ui started](https://github.com/IPeter/darts-go/blob/master/doc/adminUI02.png)
+
+![UI Edit Score](https://github.com/SindriTh/darts-go/assets/70705172/9d0168a1-d089-4d9e-8441-f8faeb669eb7)
+
 
 ## Connecting other recognition software
 
