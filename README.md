@@ -4,23 +4,12 @@
 
 The dependencies are in the glide.yaml. To install them:
 
-Macos:
-
 ```bash
-brew install glide
-```
-
-Linux:
-```bash
-curl https://glide.sh/get | sh
-```
-
-If glide is installed, then install the dependencies:
-
-```bash
-export GOPATH=<go_projects> # this contains src and the darts-go project in it
-cd src/darts-go
-glide install
+go mod init darts-go
+go get github.com/google/uuid@0.2
+go get github.com/olahol/melody
+go get gopkg.in/gin-gonic/gin.v1@v1.1.4
+go mod tidy
 go build server.go
 ```
 
