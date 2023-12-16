@@ -47,6 +47,7 @@ func main() {
 
 	r.LoadHTMLFiles("scoreboards/awaiting.html",
 		"scoreboards/501.html",
+		"scoreboards/301.html",
 		"scoreboards/cricket.html",
 		"admin/start-game.html",
 		"admin/editthrow.html")
@@ -56,7 +57,13 @@ func main() {
 			c.HTML(200, "awaiting.html", gin.H{})
 		} else {
 			println("Serving :" + game.GetGame().Name + " " + game.GetGame().SubType)
-			c.HTML(200, game.GetGame().Name+".html", gin.H{})
+			if game.GetGame().Name == "501" && game.GetGame().SubType == "simple" {
+				c.HTML(200, "501.html", gin.H{})
+			} else if game.GetGame().Name == "501" && game.GetGame().SubType == "301" {
+				c.HTML(200, "301.html", gin.H{})
+			} else {
+				c.HTML(200, game.GetGame().Name+".html", gin.H{})
+			}
 		}
 	})
 	g.Static("/start", "")

@@ -75,7 +75,6 @@
     <script src="/assets/vue226.js"></script>
     <script src="/assets/axios.js"></script>
     <script src="/assets/underscore.js"></script>
-    <script src="/assets/qrcode.min.js"></script>
     <script>
         var scoreBoardApp;
 
@@ -256,16 +255,6 @@
                     }
                 }
             })
-
-            var qrcode = new QRCode("qrcode", {
-                text: "http://"+window.location.hostname+':'+window.location.port+'/admin/setPlayer',
-                width: 256,
-                height: 256,
-                colorDark : "#000000",
-                colorLight : "#2b3e50",
-                correctLevel : QRCode.CorrectLevel.H
-            });
-
 
         }
         
