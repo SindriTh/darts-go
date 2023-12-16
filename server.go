@@ -46,16 +46,16 @@ func main() {
 	})
 
 	r.LoadHTMLFiles("scoreboards/awaiting.html",
-							    "scoreboards/501.html",
-							    "scoreboards/cricket.html",
-									"admin/start-game.html",
-									"admin/editthrow.html")
+		"scoreboards/501.html",
+		"scoreboards/cricket.html",
+		"admin/start-game.html",
+		"admin/editthrow.html")
 
 	g.GET("/scoreboard", func(c *gin.Context) {
 		if game.GetGame().Status == model.StatusCreate {
 			c.HTML(200, "awaiting.html", gin.H{})
 		} else {
-			c.HTML(200, game.GetGame().Name + ".html", gin.H{})
+			c.HTML(200, game.GetGame().Name+".html", gin.H{})
 		}
 	})
 	g.Static("/start", "")
@@ -86,6 +86,7 @@ func main() {
 		game.GetGame().Name = c.Query("gameType")
 		game.GetGame().SubType = c.Query("gameSubType")
 		game.SendGameDataToClients(game.WebsocketGameStarted)
+		println("Starting game: " + game.GetGame().Name + " " + game.GetGame().SubType)
 		c.Redirect(301, "/admin/throws")
 	})
 	adm.GET("/saveAndCreateNew", func(c *gin.Context) {
