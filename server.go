@@ -55,6 +55,7 @@ func main() {
 		if game.GetGame().Status == model.StatusCreate {
 			c.HTML(200, "awaiting.html", gin.H{})
 		} else {
+			println("Serving :" + game.GetGame().Name + " " + game.GetGame().SubType)
 			c.HTML(200, game.GetGame().Name+".html", gin.H{})
 		}
 	})
